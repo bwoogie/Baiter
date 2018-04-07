@@ -1,6 +1,5 @@
 ﻿using Baiter.Popups;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using static Baiter.Popups.Popup;
 
@@ -38,11 +37,17 @@ namespace Baiter {
             if(lbPopups.SelectedIndex == -1) return;
 
             flpArgs.Controls.Clear();
-            
+
+            if(GetPopups()[lbPopups.SelectedIndex].Screenshot != null) {
+                pbScreen.Image = GetPopups()[lbPopups.SelectedIndex].Screenshot;
+            } else {
+                pbScreen.Image = null;
+            }
+
             foreach(Argument arg in GetPopups()[lbPopups.SelectedIndex].Arguments) {
                 TextBox tb = new TextBox();
                 tb.Name = arg.Name;
-                tb.Text = arg.Name;
+                tb.Text = arg.Value;
                 tb.Width = flpArgs.Width - (flpArgs.Margin.Right * 2);
                 flpArgs.Controls.Add(tb);
             }
