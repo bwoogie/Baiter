@@ -11,13 +11,13 @@ namespace Baiter {
             populatePopupList();
         }
 
-        private void populatePopupList() {
+        private void populatePopupList() { 
             foreach(Popup p in GetPopups()) {
                 lbPopups.Items.Add(p.Name);
             }
         }
 
-        private void btnLaunch_Click(object sender, EventArgs e) {
+        private void btnLaunch_Click(object sender, EventArgs e) { 
             if(lbPopups.SelectedIndex == -1) return;
 
             frmBrowser browser = new frmBrowser();

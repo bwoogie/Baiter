@@ -8,17 +8,18 @@ using System.Windows.Forms;
 namespace Baiter.Popups {
     public abstract class Popup {
 
-        public abstract string HTML { get; }
-        public abstract AnnoyanceMessageBox messageBox { get; }
-        public abstract Bitmap Screenshot { get; }
-        public abstract Bitmap Icon { get; }
-        public abstract string Name { get; }
-        public abstract string WindowTitle { get; }
-        public abstract int WindowWidth { get; }
-        public abstract int WindowHeight { get; }
-        public abstract FormWindowState WindowState { get; }
-        public abstract FormBorderStyle BorderStyle { get; }
-        public abstract ArgList Arguments { get; }
+        public abstract ArgList Arguments { get; }                  //arguments, such as phone#, etc. to be used in the html
+        public abstract string HTML { get; }                        //the html of the popup
+        public abstract AnnoyanceMessageBox messageBox { get; }     //a windows messagebox with an additional message
+        public abstract Bitmap Screenshot { get; }                  //a screenshot of the message
+        public abstract Bitmap Icon { get; }                        //the window icon
+        public abstract string Name { get; }                        //the name of the popup
+        public abstract string WindowTitle { get; }                 //the window title of the popup
+        public abstract int WindowWidth { get; }                    //the width of the popup window
+        public abstract int WindowHeight { get; }                   //the height of the popup window
+        public abstract FormWindowState WindowState { get; }        //the state of the window (minimized, maximized, normal)
+        public abstract FormBorderStyle BorderStyle { get; }        //the border style of the window
+        
 
         public virtual void ShowMessage() {
             if(messageBox == null) return;

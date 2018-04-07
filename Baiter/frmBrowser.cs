@@ -62,15 +62,6 @@ namespace Baiter {
             Text = popup.WindowTitle;
         }
 
-        private void ShowAnnoyanceBox() {
-            if(popup.messageBox != null) {
-                DialogResult dr = MessageBox.Show(popup.messageBox.Message, popup.messageBox.Title, popup.messageBox.Buttons, popup.messageBox.Icon);
-                if(popup.messageBox.Constant) {
-                    ShowAnnoyanceBox();
-                }
-            }
-        }
-
         private void frmBrowser_FormClosing(object sender, FormClosingEventArgs e) {
             if(endOnX) return;
             SystemSounds.Beep.Play();
@@ -78,7 +69,7 @@ namespace Baiter {
         }
 
         private void frmBrowser_Shown(object sender, System.EventArgs e) {
-            ShowAnnoyanceBox();
+            popup.ShowMessage();
         }
     }
 }

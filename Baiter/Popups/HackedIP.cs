@@ -20,12 +20,12 @@ namespace Baiter.Popups {
 
         public override FormWindowState WindowState => FormWindowState.Normal;
 
+        public override FormBorderStyle BorderStyle => FormBorderStyle.FixedSingle;
+
         public override ArgList Arguments => new ArgList {
                 new Argument() { Arg = "%phone%", Name = "Phone", Value = "1-800-555-5555" },
                 new Argument() {Arg = "%ip%", Name = "IP Address", Value = "192.168.1.101" },
             };
-
-        public override FormBorderStyle BorderStyle => FormBorderStyle.FixedSingle;
 
         public override Bitmap Screenshot => Properties.Resources.hackedip;
     }
